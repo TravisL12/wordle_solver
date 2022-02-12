@@ -1,47 +1,26 @@
-const fs = require("fs");
-const { argv } = require("process");
-const WORD_LENGTH = 5;
+const express = require("express");
+const path = require("path");
+const cors = require("cors");
+const { wordleHelper } = require("./wordle_solver.js");
 
-const filterWords = (words, guessWord, excludedLetters, includedLetters) => {
-  if (guessWord.length !== 5) {
-    console.error(
-      "Guess word must be 5 characters (use blank spaces for unknown letters)!"
-    );
-    return;
-  }
+const app = express();
+const port = process.env.PORT || 8080;
 
-  // regex look ahead from https://stackoverflow.com/a/18643205/2879650
-  const excludedRule = excludedLetters ? `([^${excludedLetters}])` : `.`;
-  const includeRule = includedLetters
-    ? includedLetters
-        .split("")
-        .map((x) => `(?=.*${x})`)
-        .join("")
-    : `.`;
+app.use(cors());
+app.use("/static", express.static(path.join(__dirname, "static")));
 
-  const matchRe = new RegExp(guessWord.replace(/\s/gi, `(.)`));
-  const includeWordRe = new RegExp(includeRule);
-  const excludeWordRe = new RegExp(guessWord.replace(/\s/gi, excludedRule));
+// sendFile will go here
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "./static/index.html"));
+});
 
-  return words.filter((word) => {
-    const isPossible = matchRe.test(word) && includeWordRe.test(word);
-    return isPossible && excludeWordRe.test(word);
-  });
-};
+app.get("/guess", function (req, res) {
+  // const guessWord = argv[2];
+  // const excludedLetters = argv[3];
+  // const includedLetters = argv[4];
+  const words = wordleHelper(" r   ", "", "");
+  res.json(words);
+});
 
-try {
-  const data = fs.readFileSync("./dictionary.txt", "utf8");
-  const words = data.split("\n").filter((word) => word.length === WORD_LENGTH);
-  const guessWord = argv[2];
-  const excludedLetters = argv[3];
-  const includedLetters = argv[4];
-  const possibleWords = filterWords(
-    words,
-    guessWord,
-    excludedLetters,
-    includedLetters
-  );
-  console.log(possibleWords);
-} catch (err) {
-  console.error(err);
-}
+app.listen(port);
+console.log("Server started at http://localhost:" + port);
