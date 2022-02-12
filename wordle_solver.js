@@ -29,7 +29,11 @@ const filterWords = (words, guessWord, excludedLetters, includedLetters) => {
   });
 };
 
-const wordleHelper = (guessWord, excludedLetters, includedLetters) => {
+const wordleHelper = (
+  guessWord,
+  excludedLetters = "",
+  includedLetters = ""
+) => {
   try {
     const data = fs.readFileSync("./dictionary.txt", "utf8");
     const words = data
@@ -41,7 +45,7 @@ const wordleHelper = (guessWord, excludedLetters, includedLetters) => {
       excludedLetters,
       includedLetters
     );
-    console.log(possibleWords);
+
     return possibleWords;
   } catch (err) {
     console.error(err);

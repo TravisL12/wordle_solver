@@ -18,7 +18,7 @@ app.get("/guess", function (req, res) {
   // const guessWord = argv[2];
   // const excludedLetters = argv[3];
   // const includedLetters = argv[4];
-  const words = wordleHelper(" r   ", "", "");
+  const words = wordleHelper(" r   ");
   res.json(words);
 });
 
