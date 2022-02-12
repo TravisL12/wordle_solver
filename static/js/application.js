@@ -22,7 +22,20 @@ const fetchGuess = async (guessWord, excludedLetters, includedLetters) => {
     },
   });
   const results = await resp.json();
-  resultsEl.textContent = `${results.join(" ")}`;
+  resultsEl.innerHTML = results.reduce((acc, word) => {
+    const split = word.split("");
+    const styledWord = split.map((letter, i) => {
+      let letterClass = "";
+      if (split[i] === guessWord[i]) {
+        letterClass = "match";
+      } else if (includedLetters.includes(split[i])) {
+        letterClass = "included";
+      }
+      return `<span class="${letterClass}">${letter}</span>`;
+    });
+    acc += `<div class="word">${styledWord.join("")}</div>`;
+    return acc;
+  }, "");
 };
 
 const renderOutput = (results) => {

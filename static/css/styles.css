@@ -1,3 +1,37 @@
 * {
   box-sizing: border-box;
 }
+
+#results {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.word {
+  display: flex;
+  padding: 10px;
+  background: lightgray;
+}
+
+.word span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: white;
+  padding: 2px;
+}
+
+.word span + span {
+  border-left: 1px solid lightgray;
+}
+
+.word span.included {
+  background: orange;
+}
+
+.word span.match {
+  background: lime;
+}
