@@ -6,6 +6,7 @@ const { wordleHelper } = require("./wordle_solver.js");
 const app = express();
 const port = process.env.PORT || 8080;
 
+app.use(express.json());
 app.use(cors());
 app.use("/static", express.static(path.join(__dirname, "static")));
 
@@ -14,11 +15,9 @@ app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "./static/index.html"));
 });
 
-app.get("/guess", function (req, res) {
-  // const guessWord = argv[2];
-  // const excludedLetters = argv[3];
-  // const includedLetters = argv[4];
-  const words = wordleHelper(" r   ");
+app.post("/guess", function (req, res) {
+  const { guessWord, excluded, included } = req.body;
+  const words = wordleHelper(guessWord, excluded, included);
   res.json(words);
 });
 

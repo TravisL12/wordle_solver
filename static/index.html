@@ -6,11 +6,30 @@
   </head>
   <body>
     <div class="container">
-      <div class="jumbotron">
-        <h1>Let's play Wordle!</h1>
-        <button id="guess">Guess?</button>
-        <div id="results"></div>
-      </div>
+      <h1>Let's play Wordle!</h1>
+
+      <form id="wordleForm" class="container">
+        <div>
+          <input class="guess" type="text" />
+          <input class="guess" type="text" />
+          <input class="guess" type="text" />
+          <input class="guess" type="text" />
+          <input class="guess" type="text" />
+        </div>
+        <div>
+          <label for="excluded">Excluded</label>
+          <input id="excluded" type="input" placeholder="Excluded Letters" />
+        </div>
+        <div>
+          <label for="included">Included</label>
+          <input id="included" type="input" placeholder="Included Letters" />
+        </div>
+        <div>
+          <input type="submit" value="Enter" />
+        </div>
+      </form>
+
+      <div id="results"></div>
     </div>
   </body>
   <script src="http://0.0.0.0:8080/static/js/application.js"></script>
