@@ -22,7 +22,7 @@ const fetchGuess = async (guessWord, excludedLetters, includedLetters) => {
     },
   });
   const results = await resp.json();
-  resultsEl.textContent = `This many results - ${results.join(" ")}`;
+  resultsEl.textContent = `${results.join(" ")}`;
 };
 
 const renderOutput = (results) => {
