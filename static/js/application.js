@@ -13,7 +13,7 @@
       included: includedLetters,
     });
 
-    const url = `/guess`;
+    const url = `${window.location.href}guess`;
     const resp = await fetch(url, {
       method: "POST",
       body,
