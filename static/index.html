@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wordle Solver</title>
+    <link rel="stylesheet" href="http://0.0.0.0:8080/static/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Let's play Wordle!</h1>
+
+      <form id="wordleForm" class="container">
+        <div>
+          <input class="guess" type="text" />
+          <input class="guess" type="text" />
+          <input class="guess" type="text" />
+          <input class="guess" type="text" />
+          <input class="guess" type="text" />
+        </div>
+        <div>
+          <label for="excluded">Excluded</label>
+          <input id="excluded" type="input" placeholder="Excluded Letters" />
+        </div>
+        <div>
+          <label for="included">Included</label>
+          <input id="included" type="input" placeholder="Included Letters" />
+        </div>
+        <div>
+          <input type="submit" value="Enter" />
+        </div>
+      </form>
+
+      <div id="results"></div>
+    </div>
+  </body>
+  <script src="http://0.0.0.0:8080/static/js/application.js"></script>
+</html>

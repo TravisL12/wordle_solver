@@ -1,0 +1,11 @@
+{
+  "name": "wordle_help",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Travis Lawrence <travis.lawrence12@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2"
+  }
+}

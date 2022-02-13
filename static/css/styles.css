@@ -1,0 +1,48 @@
+* {
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+#results {
+  margin-top: 20px;
+}
+
+.possible-words {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px 60px;
+  flex-wrap: wrap;
+}
+
+.word {
+  display: flex;
+  gap: 5px;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.word span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  background: white;
+  padding: 2px;
+  border: 2px solid #d3d6da;
+  font-weight: bold;
+}
+
+.word span.included,
+.word span.match {
+  color: white;
+  border: none;
+}
+
+.word span.included {
+  background: #c9b458;
+}
+
+.word span.match {
+  background: #6aaa64;
+}
