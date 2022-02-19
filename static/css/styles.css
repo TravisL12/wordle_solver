@@ -14,6 +14,18 @@
   flex-wrap: wrap;
 }
 
+.guess {
+  font-size: 32px;
+  text-transform: uppercase;
+  width: 62px;
+  height: 62px;
+  background: white;
+  padding: 2px;
+  border: 2px solid #d3d6da;
+  font-weight: bold;
+  text-align: center;
+}
+
 .word {
   display: flex;
   gap: 5px;
