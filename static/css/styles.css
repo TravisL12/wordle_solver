@@ -42,10 +42,16 @@
   text-align: center;
 }
 
+.guess:not(:placeholder-shown) {
+  background: #6aaa64;
+  color: white;
+  border: none;
+}
+
 .word {
   display: flex;
   gap: 5px;
-  font-size: 32px;
+  font-size: 20px;
   text-transform: uppercase;
 }
 
@@ -53,8 +59,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 62px;
-  height: 62px;
+  width: 30px;
+  height: 30px;
   background: white;
   padding: 2px;
   border: 2px solid #d3d6da;
