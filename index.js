@@ -17,7 +17,11 @@ app.get("/", function (req, res) {
 app.post("/guess", function (req, res) {
   const { guessWord, excluded, included } = req.body;
   const words = wordleHelper(guessWord, excluded, included);
-  res.json(words);
+  if (words.length > 1000) {
+    res.json({ count: words.length, words: words.slice(0, 1000) });
+  } else {
+    res.json({ count: words.length, words });
+  }
 });
 
 app.listen(port);

@@ -21,8 +21,8 @@
         "Content-Type": "application/json",
       },
     });
-    const results = await resp.json();
-    const possibleWords = results.reduce((acc, word) => {
+    const { count, words } = await resp.json();
+    const possibleWords = words.reduce((acc, word) => {
       const split = word.split("");
       const styledWord = split.map((letter, i) => {
         let letterClass = "";
@@ -38,7 +38,9 @@
     }, "");
 
     resultsEl.innerHTML = `
-      <div>${results.length} results found!</div>
+      <div>${count} results found!${
+      count > 1000 ? " (only 1000 displayed)" : ""
+    }</div>
       <div class="possible-words">${possibleWords}</div>
     `;
   };
