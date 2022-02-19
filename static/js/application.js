@@ -43,6 +43,14 @@
     `;
   };
 
+  [...inputs].forEach((input, idx) => {
+    input.addEventListener("input", () => {
+      if (input.value && inputs[idx + 1]) {
+        inputs[idx + 1].focus();
+      }
+    });
+  });
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     let guessWord = "";
