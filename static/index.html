@@ -10,21 +10,23 @@
     <div class="container">
       <h1>Let's play Wordle!</h1>
 
-      <form id="wordleForm" class="container">
-        <div>
-          <input maxlength="1" class="guess" type="text" />
-          <input maxlength="1" class="guess" type="text" />
-          <input maxlength="1" class="guess" type="text" />
-          <input maxlength="1" class="guess" type="text" />
-          <input maxlength="1" class="guess" type="text" />
-        </div>
-        <div>
-          <label for="excluded">Excluded</label>
-          <input id="excluded" type="input" placeholder="Excluded Letters" />
-        </div>
-        <div>
-          <label for="included">Included</label>
-          <input id="included" type="input" placeholder="Included Letters" />
+      <form id="wordleForm">
+        <div class="form-group">
+          <div>
+            <input maxlength="1" class="guess" type="text" />
+            <input maxlength="1" class="guess" type="text" />
+            <input maxlength="1" class="guess" type="text" />
+            <input maxlength="1" class="guess" type="text" />
+            <input maxlength="1" class="guess" type="text" />
+          </div>
+          <div class="input-group">
+            <label for="excluded">Excluded</label>
+            <input id="excluded" type="input" placeholder="Excluded Letters" />
+          </div>
+          <div class="input-group">
+            <label for="included">Included</label>
+            <input id="included" type="input" placeholder="Included Letters" />
+          </div>
         </div>
         <div>
           <input type="submit" value="Enter" />

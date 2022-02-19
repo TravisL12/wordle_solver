@@ -44,6 +44,11 @@
   };
 
   [...inputs].forEach((input, idx) => {
+    input.addEventListener("keyup", (event) => {
+      if (event.key === "Backspace" && inputs[idx - 1]) {
+        inputs[idx - 1].focus();
+      }
+    });
     input.addEventListener("input", () => {
       if (input.value && inputs[idx + 1]) {
         inputs[idx + 1].focus();
